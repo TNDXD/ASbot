@@ -188,7 +188,7 @@ client.on("message", message => {
  if (message.content === "-help") {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setFooter('© SLG Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
+      .setFooter('© Arabic Sword Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
       .setFooter('اوامر الادمنيه')
 	  .addField('-bc', `لخاصية البرودكستات`)
       .setFooter('======================================================')
@@ -226,7 +226,7 @@ client.on("message", message => {
  if (message.content === "-invite") {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setFooter('© SLG Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
+      .setFooter('© Arabic Sword Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
       .addField('شكرا لك لاستخدامك ل اس ال جي بوت', `https://discordapp.com/api/oauth2/authorize?client_id=532101722055639041&permissions=0&scope=bot`)
   message.author.send({embed});
 
@@ -270,7 +270,7 @@ client.on("message", message => {
  if (message.content === "-support") {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setFooter('© SLG Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')  
+      .setFooter('© Arabic Sword Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')  
   message.author.send({embed});
 
  }
@@ -350,7 +350,7 @@ client.on('message', message => {
  
   .setColor("#FF0000")
   .addField('``سرعة أتصال الــبوت`` ' , `${Date.now() - message.createdTimestamp}` + ' ms`')
-                 .setFooter(` SLG Bot
+                 .setFooter(` Arabic Sword Bot
  .`, 'https://b.top4top.net/p_6021qh431.jpg')
 
   message.channel.sendEmbed(embed);
@@ -545,7 +545,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers `);
     console.log(`---------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame(`قيد البرمجه`,"http://twitch.tv/y04zgamer")
+  client.user.setGame(`سيرفر السف العربي للحياة الواقعية`,"http://twitch.tv/y04zgamer")
    client.user.setStatus("dnd")
 });
 
@@ -738,7 +738,7 @@ if (command == "غرد") {
     .setColor('RANDOM')
     .setAuthor(msg.author.username, msg.author.avatarURL)
     .setDescription(args.join(" "))
-    .setFooter('© . :SLG || Copyright')
+    .setFooter('© . :Arabic Sword || Copyright')
     msg.channel.sendEmbed(embed);
     msg.delete();
   }
@@ -832,7 +832,7 @@ client.on("message", message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "© SLG Bot ™."
+          text: "© Arabic Sword Bot ™."
         }
       }}).then(msg => {msg.delete(3000)});
                           }
@@ -1140,40 +1140,131 @@ message.channel.sendEmbed(avatar)
 
 
 
+const Discord = require('discord.js');
+const client = new Discord.Client();
+var prefix = "-"
+var adminprefix = '--'
 
 
+//bc
+
+client.on("message", message => {
+    if (message.content.startsWith("$obc")) {
+                 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' ');
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+  m.send(`${argresult}\n ${m}`);
+  })
+  message.channel.send(`\`${message.guild.members.filter( m => m.presence.status !== 'all').size}\`:mailbox:  عدد المستلمين `);
+  message.delete();
+  };
+  });
 
 
+//bc online
 
 
+  var prefix = "$";
 
+  client.on("message", message => {
+  
+              if (message.content.startsWith(prefix + "bc")) {
+                           if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+    let args = message.content.split(" ").slice(1);
+    var argresult = args.join(' '); 
+    message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+   m.send(`${argresult}\n ${m}`);
+  })
+   message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :mailbox:  عدد المستلمين `); 
+   message.delete(); 
+  };     
+  });
 
+client.on('message', message => {
+    var  user = message.mentions.users.first() || message.author;
+if (message.content.startsWith("$avatar")) {
+message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
+}
+});
 
+client.on('ready',  () => {
+    console.log('تم تشغيل :Broadcast  ');
+    console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
+    console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
+    console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
+  });
 
+  client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('$adminbc')){
+if(!message.author.id === '476185102922285066') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 
+  client.on('message', msg => {
+    if(msg.content === '$help')
+    msg.reply('Check Your DM :white_check_mark:')
+  });
+  
+  
+  client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**Help|هيلب
 
+       $obc | لأرسال برود كاست للكل
 
+       $bc  |  لأرسال برود كاست للأونلاين
 
+       $adminbc | برودكاست عادي
 
+       ** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const developers = ["472413769700474901","id"]
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'setg')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'setw')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'setl')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'sets')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/dream");
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setava')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
+});
 
 
 
