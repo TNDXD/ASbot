@@ -1137,15 +1137,6 @@ message.channel.sendEmbed(avatar)
 
 
 
-
-
-
-const Discord = require('discord.js');
-const client = new Discord.Client();
-var prefix = "-"
-var adminprefix = '--'
-
-
 //bc
 
 client.on("message", message => {
@@ -1263,9 +1254,8 @@ client.on('message', message => {
 if (message.content.startsWith(adminprefix + 'setava')) {
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
+    }
 });
-
 
 
 
