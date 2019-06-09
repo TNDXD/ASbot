@@ -188,7 +188,7 @@ client.on("message", message => {
  if (message.content === "-help") {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setFooter('© SLG Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
+      .setFooter('© As Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
       .setFooter('اوامر الادمنيه')
 	  .addField('-bc', `لخاصية البرودكستات`)
       .setFooter('======================================================')
@@ -226,7 +226,7 @@ client.on("message", message => {
  if (message.content === "-invite") {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setFooter('© SLG Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
+      .setFooter('© AS Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')
       .addField('شكرا لك لاستخدامك ل اس ال جي بوت', `https://discordapp.com/api/oauth2/authorize?client_id=532101722055639041&permissions=0&scope=bot`)
   message.author.send({embed});
 
@@ -270,7 +270,7 @@ client.on("message", message => {
  if (message.content === "-support") {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setFooter('© SLG Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')  
+      .setFooter('© AS Bot:heart: جميع الحقوق محفوظة 2019 لــبوت')  
   message.author.send({embed});
 
  }
@@ -350,7 +350,7 @@ client.on('message', message => {
  
   .setColor("#FF0000")
   .addField('``سرعة أتصال الــبوت`` ' , `${Date.now() - message.createdTimestamp}` + ' ms`')
-                 .setFooter(` SLG Bot
+                 .setFooter(` AS Bot
  .`, 'https://b.top4top.net/p_6021qh431.jpg')
 
   message.channel.sendEmbed(embed);
@@ -738,7 +738,7 @@ if (command == "غرد") {
     .setColor('RANDOM')
     .setAuthor(msg.author.username, msg.author.avatarURL)
     .setDescription(args.join(" "))
-    .setFooter('© . :SLG || Copyright')
+    .setFooter('© . :Arabic Sword || Copyright')
     msg.channel.sendEmbed(embed);
     msg.delete();
   }
@@ -832,7 +832,7 @@ client.on("message", message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "© SLG Bot ™."
+          text: "© Arabic Sword Bot ™."
         }
       }}).then(msg => {msg.delete(3000)});
                           }
