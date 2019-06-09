@@ -545,7 +545,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers `);
     console.log(`---------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame(`سيرفر السيف العربي للحياة ولواقعية`,"http://twitch.tv/y04zgamer")
+  client.user.setGame(`سيرفر السيف العربي للحياة الواقعية`,"http://twitch.tv/y04zgamer")
    client.user.setStatus("dnd")
 });
 
